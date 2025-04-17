@@ -9,11 +9,12 @@ export class UsersService {
         return this.prisma.user.findMany()
     }
 
-    async create(data: { name: string, email: string }) {
+    async create(data: { name: string, email: string,password:string }) {
         const users = await this.prisma.user.create({
             data: {
                 name: data.name,
                 email: data.email,
+                password:data.password
 
             }
 

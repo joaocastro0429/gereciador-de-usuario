@@ -9,10 +9,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
-  id String @id @default(uuid())
-  name String 
-  email String @unique
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String   // A senha é obrigatória aqui
   createdAt DateTime @default(now())
-
 }
+
+
