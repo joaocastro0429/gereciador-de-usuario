@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Request } from '@nestjs/common';
 import { UsersService } from './users.service';
 
 @Controller('users')
@@ -27,5 +27,9 @@ export class UsersController {
     @Delete(':id')
     delete(@Param('id') id: string) {
       return this.usersService.delete(id);
+    }
+    @Get('profile')
+    getProfile(@Request() req) {
+      return req.user; // vem do payload do JWT
     }
   }
